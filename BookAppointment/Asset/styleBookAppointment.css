@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background: wheat;
+}
+
+/* ===== Topbar ===== */
+.topbar {
+    height: 60px;
+    background-color: darkslategrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 2px solid wheat;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* ===== Layout ===== */
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    width: 220px;
+    background: #122334;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+    background: #1e3a56;
+}
+
+/* Sidebar links */
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+}
+
+/* Hover & active link */
+.sidebar li:hover a,
+.sidebar .active a {
+    color: white;
+}
+
+
+.menu-title {
+    margin-top: 15px;
+    font-weight: bold;
+    color: wheat;
+}
+
+.submenu {
+    margin-left: 15px;
+}
+
+.submenu li {
+    font-size: 14px;
+    padding: 8px;
+}
+
+/* ===== Content ===== */
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.content h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #333;
+}
+/* ===== Form Card ===== */
+form {
+    background: white;
+    padding: 25px;
+    width: 450px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ===== Table inside Form ===== */
+form table {
+    width: 100%;
+}
+
+form td {
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* ===== Inputs ===== */
+select,
+input[type="number"] {
+    width: 100%;
+    padding: 6px;
+    font-size: 15px;
+}
+
+/* ===== Book Button ===== */
+input[type="submit"] {
+    background: darkslategrey;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background: #1e3a56;
+}
+
+/* ===== Message ===== */
+.message {
+    margin-top: 15px;
+    font-weight: bold;
+}
