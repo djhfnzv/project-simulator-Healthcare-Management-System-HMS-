@@ -15,3 +15,7 @@ This task involves creating a Registration form for patient , component with nam
 ord fields, including validation and error handling.
 **Status: Implemented**
 
+## F03: Profile Viewing 
+This task involves viewing the profile for all entities.
+**Status: Implemented**
+
