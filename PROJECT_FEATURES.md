@@ -19,3 +19,7 @@ ord fields, including validation and error handling.
 This task involves viewing the profile for all entities.
 **Status: Implemented**
 
+## F04: Profile Editing 
+This task involves creating an editable feilds for changing the personal information as well as the password and image. 
+**Status: Implemented**
+
