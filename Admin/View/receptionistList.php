@@ -21,11 +21,11 @@
 <html>
 <head>
     <title>Healthcare Management System</title>
-    <link rel="stylesheet" href="../Asset/cssAdminD.css">
+    <link rel="stylesheet" href="../Asset/cssAdminR.css">
 </head>
 
 <body>
-<script src="../Asset/adminDoctor.js"></script>
+<script src="../Asset/adminReceptionist.js"></script>
 <header class="topbar">
     <div class="logo">
         <img src="../../Icons/logo.png" alt="Logo">
@@ -62,9 +62,9 @@
             
             <li class="menu-title">Manage</li>
             <ul class="submenu">
-                <li class="active"><a href="doctorList.php">Doctor</a></li>
+                <li><a href="doctorList.php">Doctor</a></li>
                 <li><a href="nurseList.php">Nurse</a></li>
-                <li><a href="receptionistList.php">Receptionist</a></li>
+                <li class="active"><a href="receptionistList.php">Receptionist</a></li>
                 <li><a href="patientList.php">Patient</a></li>
             </ul>
 
@@ -75,28 +75,29 @@
 
     <main class="content">
 
-        <h1>Doctor List</h1>
+        <h1>Receptionist List</h1>
 
         <?php
             $con = connection();
-            $doctors = [];
+            $receptionists = [];
 
             $query = "select name,age,dob,email,password,mobile,speciality 
-                    from users where role='Doctor'";
+                    from users where role='Receptionist'";
 
             $result = mysqli_query($con, $query);
 
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $doctors[] = $row;
+                    $receptionists[] = $row;
                 }
             }
         ?>
 
-        <div class="doctor-layout">
-            <!--doctor list-->
-            <div class="doctor-list">
-                <table class="doctor-table">
+        <div class="receptionist-layout">
+
+            <!-- LEFT: receptionist List -->
+            <div class="receptionist-list">
+                <table class="receptionist-table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -105,28 +106,26 @@
                             <th>Email</th>
                             <th>Password</th>
                             <th>Mobile</th>
-                            <th>Speciality</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($doctors as $doc) { ?>
+                        <?php foreach ($receptionists as $nrs) { ?>
                         <tr>
-                            <td><?php echo  $doc['name'] ?></td>
-                            <td><?php echo  $doc['age'] ?></td>
-                            <td><?php echo  $doc['dob'] ?></td>
-                            <td><?php echo  $doc['email'] ?></td>
-                            <td><?php echo  $doc['password'] ?></td>
-                            <td><?php echo  $doc['mobile'] ?></td>
-                            <td><?php echo  $doc['speciality'] ?></td>
+                            <td><?php echo $nrs['name'] ?></td>
+                            <td><?php echo $nrs['age'] ?></td>
+                            <td><?php echo $nrs['dob'] ?></td>
+                            <td><?php echo $nrs['email'] ?></td>
+                            <td><?php echo $nrs['password'] ?></td>
+                            <td><?php echo $nrs['mobile'] ?></td>
                             <td>
-                                <button type="button" onclick='selectDoctor(
-                                    "<?php echo  $doc['name'] ?>",
-                                    "<?php echo  $doc['age'] ?>",
-                                    "<?php echo  $doc['dob'] ?>",
-                                    "<?php echo  $doc['email'] ?>",
-                                    "<?php echo  $doc['mobile'] ?>",
-                                    "<?php echo  $doc['speciality'] ?>"
+                                <button type="button" onclick='selectreceptionist(
+                                    "<?php echo $nrs['name'] ?>",
+                                    "<?php echo $nrs['age'] ?>",
+                                    "<?php echo $nrs['dob'] ?>",
+                                    "<?php echo $nrs['email'] ?>",
+                                    "<?php echo $nrs['mobile'] ?>",
+                                    "<?php echo $nrs['speciality'] ?>"
                                 )'>Select</button>
                             </td>
                         </tr>
@@ -134,16 +133,18 @@
                     </tbody>
                 </table>
             </div>
-            <!--doctor management -->
-            <div class="doctor-manage">
-                <form action="../Controller/checkValidDoctor.php" method="post" id="doctorForm">
+
+            <!-- RIGHT: receptionist Management -->
+            <div class="receptionist-manage">
+                <form action="../Controller/checkValidAll.php" method="post" id="receptionistForm">
+                    <input type="hidden" name="role" id="role" value="Receptionist">
 
                     <input type="hidden" name="action" id="action">
                     <input type="hidden" name="email_key" id="email_key">
 
-                    <table class="doctor-manage-table">
+                    <table class="receptionist-manage-table">
                         <tr>
-                            <th colspan="2">Doctor Management</th>
+                            <th colspan="2">receptionist Management</th>
                         </tr>
 
                         <tr>
@@ -175,27 +176,12 @@
                             <td>Mobile</td>
                             <td><input type="text" name="mobile" id="mobile" disabled></td>
                         </tr>
-
-                        <tr>
-                            <td>Speciality</td>
-                            <td>
-                                <select name="speciality" id="speciality">
-                                    <option value="">Select</option>
-                                    <option value="Cardiology">Cardiology</option>
-                                    <option value="Neurology">Neurology</option>
-                                    <option value="Orthopedics">Orthopedics</option>
-                                    <option value="Gynecology">Gynecology</option>
-                                    <option value="Dermatology">Dermatology</option>
-                                </select>
-                            </td>
-                        </tr>
-
                         <tr>
                             <td colspan="2">
                                 <div class="btn-group">
-                                    <button type="button" onclick="addDoctor()">Add</button>
-                                    <button type="button" onclick="editDoctor()">Edit</button>
-                                    <button type="button" onclick="deleteDoctor()">Delete</button>
+                                    <button type="button" onclick="addreceptionist()">Add</button>
+                                    <button type="button" onclick="editreceptionist()">Edit</button>
+                                    <button type="button" onclick="deletereceptionist()">Delete</button>
                                     <button type="submit" id="saveBtn" disabled>Save</button>
                                 </div>
                             </td>

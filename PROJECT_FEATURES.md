@@ -46,3 +46,7 @@ This task involves the system logo and icon images
 This task is to distroy the session and cookies for ending one's session
 **Status: Implemented**
 
+## F09: Admin Dashboard 
+This task involves the main control if the system , adding , removing and editing the staffs , monitor the transaction , monitor the activities
+**Status: Implemented**
+
