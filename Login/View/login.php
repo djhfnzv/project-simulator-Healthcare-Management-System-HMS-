@@ -1,10 +1,11 @@
 <html>
     <head>
         <title>Login</title>
+        <link rel="stylesheet" href="../Asset/cssLogin.css">
     </head>
     <script src="../Asset/login.js"></script>
         <fieldset>
-            <legend><b>User Registration</b></legend>
+            <h1>Login</h1>
                 <form action="../Controller/loginCheck.php" method="post" onsubmit="return validateLogin()">
                     <table>
                         <tr>
