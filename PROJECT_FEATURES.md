@@ -42,3 +42,7 @@ This task involves the implementation of icons of the system
 This task involves the system logo and icon images
 **Status: Implemented**
 
+## F08: Logout 
+This task is to distroy the session and cookies for ending one's session
+**Status: Implemented**
+
