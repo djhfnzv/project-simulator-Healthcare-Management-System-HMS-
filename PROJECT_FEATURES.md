@@ -38,3 +38,7 @@ This task involves connecting the system with the database
 This task involves the implementation of icons of the system
 **Status: Implemented**
 
+## F07: System UI Components 
+This task involves the system logo and icon images
+**Status: Implemented**
+
