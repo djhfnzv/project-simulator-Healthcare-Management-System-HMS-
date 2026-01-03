@@ -34,3 +34,7 @@ This task involves : home redirection from remote positions
 This task involves connecting the system with the database
 **Status: Implemented**
 
+## F07: System UI Components 
+This task involves the implementation of icons of the system
+**Status: Implemented**
+
