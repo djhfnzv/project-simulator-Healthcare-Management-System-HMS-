@@ -30,3 +30,7 @@ This task involves : home redirection from remote positions
 This task involves : home redirection from remote positions
 **Status: Implemented**
 
+## F06: Database connection 
+This task involves connecting the system with the database
+**Status: Implemented**
+
