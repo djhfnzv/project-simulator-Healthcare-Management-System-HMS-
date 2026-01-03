@@ -50,3 +50,7 @@ This task is to distroy the session and cookies for ending one's session
 This task involves the main control if the system , adding , removing and editing the staffs , monitor the transaction , monitor the activities
 **Status: Implemented**
 
+## F10: User Activity 
+This task involves storing the user details while login and logout
+**Status: Implemented**
+
