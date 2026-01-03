@@ -12,3 +12,7 @@ Implemented Patient module with Asset, Controller, Model, and View folders inclu
 Implemented Patient module with Asset, Controller, Model, and View folders including PHP views and UI assets.
 **Status: Implemented**
 
+## Feature 12 : Book Appointments (F12)
+Implemented booking feature for patients with Asset, Controller, Model, and View folders including PHP views and UI assets.
+**Status: Implemented**
+
