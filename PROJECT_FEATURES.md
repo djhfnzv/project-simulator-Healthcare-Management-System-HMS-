@@ -40,3 +40,7 @@ Implemented Patient module with Asset, Controller, Model, and View folders inclu
   Reschedule Appointment feature was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
 
+## F16: Payment
+  Payment feature was implemented using MVC architecture and validated using Java Script .
+**Status: Implemented**
+
