@@ -32,3 +32,7 @@ Implemented Patient module with Asset, Controller, Model, and View folders inclu
   Cancel Appointment feature was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
 
+## F14: Manage Appointment
+  Manage Appointment feature was implemented using MVC architecture and validated using Java Script .
+**Status: Implemented**
+
