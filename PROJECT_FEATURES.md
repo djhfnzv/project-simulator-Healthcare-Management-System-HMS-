@@ -19,3 +19,7 @@ Doctor can set his/her schedule.
 Doctor can see patient present and previous medical history .
 **Status: Implemented**
 
+## F22: Nurse
+Nurse are able to see his/her schedule and patient list .
+**Status: Implemented**
+
