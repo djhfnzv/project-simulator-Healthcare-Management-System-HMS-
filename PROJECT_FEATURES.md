@@ -11,3 +11,7 @@ this task involves the fuctionality of doctor.
 this task involves the fuctionality of doctor.
 **Status: Implemented**
 
+## F20: Doctor Schedule
+Doctor can set his/her schedule.
+**Status: Implemented**
+
