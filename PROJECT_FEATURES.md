@@ -15,3 +15,7 @@ this task involves the fuctionality of doctor.
 Doctor can set his/her schedule.
 **Status: Implemented**
 
+## F21: Medical Records
+Doctor can see patient present and previous medical history .
+**Status: Implemented**
+
