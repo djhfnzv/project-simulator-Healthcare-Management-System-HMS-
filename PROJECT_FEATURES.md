@@ -24,3 +24,7 @@ Implemented Patient module with Asset, Controller, Model, and View folders inclu
   Book Appointment feature was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
 
+## F12: Book Appointment
+  Book Appointment feature was implemented using MVC architecture and validated using Java Script .
+**Status: Implemented**
+
