@@ -23,3 +23,7 @@ Doctor can see patient present and previous medical history .
 Nurse are able to see his/her schedule and patient list .
 **Status: Implemented**
 
+## F23: Prescription Management
+Both doctor and nurse can view it .
+**Status: Implemented**
+
