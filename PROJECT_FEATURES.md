@@ -7,3 +7,7 @@ ord fields, including validation and error handling.
 this task involves the fuctionality of doctor.
 **Status: Implemented**
 
+## F19 : Dctor Dashboard
+this task involves the fuctionality of doctor.
+**Status: Implemented**
+
