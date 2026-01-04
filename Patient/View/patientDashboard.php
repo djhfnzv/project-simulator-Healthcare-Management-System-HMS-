@@ -6,20 +6,20 @@
 <meta charset="UTF-8">
 <title>Healthcare Management System</title>
 
-<link rel="stylesheet" href="../asset/stylePatient.css">
+<link rel="stylesheet" href="../Asset/stylePatient.css">
 </head>
 
 <body>
 
 <header class="topbar">
     <div class="logo">
-        <img src="../asset/logo.png">
+        <img src="../Asset/logo.png">
         <span>Healthcare Management System</span>
     </div>
 
     <div class="topbar-right">
         <div class="icon">
-            <img src="../asset/bell.svg" alt="Notifications">
+            <img src="../Asset/bell.svg" alt="Notifications">
         </div>
 
         <div class="icon">
@@ -33,7 +33,7 @@
         <div class="icon">
             <form action="../../Registration/Controller/logout.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
-                    <img src="../asset/logout.svg" alt="Logout">
+                    <img src="../Asset/logout.svg" alt="Logout">
                 </button>
             </form>
         </div>
@@ -53,8 +53,11 @@
 </aside>
 
 <main class="content">
-    <h1>Hi, <?= htmlspecialchars($patientName) ?>!</h1>
-    <p>Open files from the side panel.</p>
+    <h1>Hi, <?php echo $_SESSION['user']['name']; ?>!</h2>
+
+        <p >
+            Open Files From Side Panel
+        </p>
 </main>
 
 </div>

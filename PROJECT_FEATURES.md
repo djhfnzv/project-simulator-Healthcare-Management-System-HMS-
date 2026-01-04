@@ -16,3 +16,7 @@ Implemented Patient module with Asset, Controller, Model, and View folders inclu
  Patient Dashboard was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
 
+## F11: Patient Dashboard
+ Patient Dashboard was implemented using MVC architecture and validated using Java Script .
+**Status: Implemented**
+

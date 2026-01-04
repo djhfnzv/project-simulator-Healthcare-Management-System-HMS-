@@ -6,20 +6,20 @@
 <meta charset="UTF-8">
 <title>Prescription & Diagnosis</title>
 
-<link rel="stylesheet" href="../asset/stylePatient.css">
+<link rel="stylesheet" href="../Asset/stylePatient.css">
 </head>
 
 <body>
 
 <header class="topbar">
     <div class="logo">
-        <img src="../asset/logo.png">
+        <img src="../Asset/logo.png">
         <span>Healthcare Management System</span>
     </div>
 
     <div class="topbar-right">
         <div class="icon">
-            <img src="../asset/bell.svg" alt="Notifications">
+            <img src="../Asset/bell.svg" alt="Notifications">
         </div>
         <div class="icon">
             <form action="../../Profile/View/profile.php" method="post" class="logout-form">
@@ -31,7 +31,7 @@
         <div class="icon">
             <form action="../../Registration/Controller/logout.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
-                    <img src="../asset/logout.svg" alt="Logout">
+                    <img src="../Asset/logout.svg" alt="Logout">
                 </button>
             </form>
         </div>
@@ -53,42 +53,48 @@
     <h1 class="page-title">Prescription & Diagnosis</h1>
 </div>
 
-<?php if (mysqli_num_rows($result) > 0) { ?>
+<?php
+if (mysqli_num_rows($result) > 0) {
+?>
+    <div class="prescription-table-wrapper">
+        <table class="prescription-table">
+            <thead>
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Age</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                    <th>Medication</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
 
-<div class="prescription-table-wrapper">
-<table class="prescription-table">
-<thead>
-<tr>
-    <th>Doctor Name</th>
-    <th>Age</th>
-    <th>Diagnosis</th>
-    <th>Treatment</th>
-    <th>Medication</th>
-    <th>Date</th>
-</tr>
-</thead>
-<tbody>
+            <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+                <tr>
+                    <td><?php echo $row['doctorName']; ?></td>
+                    <td><?php echo $row['age']; ?></td>
+                    <td><?php echo $row['diagnosis']; ?></td>
+                    <td><?php echo $row['treatment']; ?></td>
+                    <td><?php echo $row['medication']; ?></td>
+                    <td><?php echo date("d M Y, h:i A", strtotime($row['created_at'])); ?></td>
+                </tr>
+            <?php
+            }
+            ?>
 
-<?php while ($row = mysqli_fetch_assoc($result)) { ?>
-<tr>
-    <td><?= htmlspecialchars($row['doctorName']) ?></td>
-    <td><?= htmlspecialchars($row['age']) ?></td>
-    <td><?= htmlspecialchars($row['diagnosis']) ?></td>
-    <td><?= htmlspecialchars($row['treatment']) ?></td>
-    <td><?= htmlspecialchars($row['medication']) ?></td>
-    <td><?= date("d M Y, h:i A", strtotime($row['created_at'])) ?></td>
-</tr>
-<?php } ?>
-
-</tbody>
-</table>
-</div>
-
-<?php } else { ?>
-
-<p class="no-data">No prescriptions found for you.</p>
-
-<?php } ?>
+            </tbody>
+        </table>
+    </div>
+<?php
+} else {
+?>
+    <p class="no-data">No prescriptions found for you.</p>
+<?php
+}
+?>
 
 </main>
 </div>
