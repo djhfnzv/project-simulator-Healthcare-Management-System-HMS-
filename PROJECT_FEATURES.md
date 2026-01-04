@@ -27,3 +27,7 @@ Nurse are able to see his/her schedule and patient list .
 Both doctor and nurse can view it .
 **Status: Implemented**
 
+## F23: Prescription Management
+Both doctor and nurse can view it .
+**Status: Implemented**
+
