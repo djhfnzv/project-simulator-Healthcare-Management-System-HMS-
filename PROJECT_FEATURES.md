@@ -18,3 +18,6 @@ This task involves editing user profile information.
 This task controls access based on user roles.
 **Status: Implemented**
 
+## F06: Database Connection (F06)
+This task establishes connection with the database.
+**Status: Implemented**
