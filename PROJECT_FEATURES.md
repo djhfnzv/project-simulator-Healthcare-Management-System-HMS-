@@ -29,3 +29,7 @@ This task includes common UI components.
 ## F08: Logout (F08)
 This task handles user logout functionality.
 **Status: Implemented**
+## F12: Book Appointment2
+  Book Appointment feature was implemented using MVC architecture and validated using Java Script .
+**Status: Implemented**
+
