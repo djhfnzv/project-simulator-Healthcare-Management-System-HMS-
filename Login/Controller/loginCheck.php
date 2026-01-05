@@ -1,6 +1,9 @@
 <?php
     session_start();
+<<<<<<< HEAD
     require_once '../../DB/dbUser.php';
+=======
+>>>>>>> 8fc8722 (chore: initial project structure setup)
 
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
         header("Location: ../View/login.php");
@@ -10,6 +13,7 @@
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
+<<<<<<< HEAD
     if ($email === "" || $password === "") {
         echo "null submission!";
         exit();
@@ -55,4 +59,7 @@
     header("Location: ../../Role_Based_Access_Control/Controller/homeRedirect.php");
     exit();
 
+=======
+    
+>>>>>>> 8fc8722 (chore: initial project structure setup)
 ?>
