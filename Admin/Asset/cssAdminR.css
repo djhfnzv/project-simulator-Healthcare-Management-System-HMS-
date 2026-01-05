@@ -1,0 +1,227 @@
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Body ===== */
+body {
+    font-family: "Times New Roman", Times, serif;
+    background: wheat;
+}
+
+/* ===== Topbar ===== */
+.topbar {
+    height: 60px;
+    background-color: darkslategrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 2px solid wheat;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* ===== Layout ===== */
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    width: 220px;
+    background: #122334;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidebar li {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+    background: #1e3a56;
+}
+
+.menu-title {
+    margin-top: 15px;
+    font-weight: bold;
+    color: wheat;
+}
+
+.submenu {
+    margin-left: 15px;
+}
+
+.submenu li {
+    font-size: 14px;
+    padding: 8px;
+}
+
+/* ===== Content ===== */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+
+/* ===== receptionist Layout ===== */
+.receptionist-layout {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+/* ===== receptionist List ===== */
+.receptionist-list {
+    width: 62%;
+    min-width: 400px;
+}
+
+.receptionist-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.receptionist-table th {
+    background: darkslategrey;
+    color: white;
+    padding: 5px;
+}
+
+.receptionist-table td {
+    padding: 4px;
+    border-bottom: 1px solid #966426;
+}
+
+.receptionist-table button {
+    padding: 3px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #006d6f; /* Peacock */
+    color: white;
+}
+
+.receptionist-table button:hover {
+    background: #008b8b;
+}
+
+/* ===== receptionist Management ===== */
+.receptionist-manage {
+    width: 38%;
+    min-width: 300px;
+    position: sticky;
+    top: 20px; /* sticks while scrolling */
+}
+
+.receptionist-manage-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f3ead7;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.receptionist-manage-table th {
+    background: darkslategrey;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.receptionist-manage-table td {
+    padding: 8px;
+    border-bottom: 1px solid #966426;
+}
+
+/* Inputs */
+.receptionist-manage-table input,
+.receptionist-manage-table select {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #966426;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.receptionist-manage-table input:disabled,
+.receptionist-manage-table select:disabled {
+    background: #e0e0e0;
+}
+
+/* ===== Buttons ===== */
+.btn-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.btn-group button {
+    flex: 1;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #006d6f; /* Peacock */
+    color: white;
+    border: none;
+}
+
+.btn-group button:hover {
+    background: #008b8b;
+}
+
+.btn-group button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
