@@ -13,3 +13,8 @@ This task involves viewing the profile for all entities
 ## F04: Profile Editing (F04)
 This task involves editing user profile information.
 **Status: Implemented**
+
+## F05: Role Based Access Control (F05)
+This task controls access based on user roles.
+**Status: Implemented**
+
