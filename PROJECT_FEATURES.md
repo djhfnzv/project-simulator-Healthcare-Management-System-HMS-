@@ -21,3 +21,7 @@ This task controls access based on user roles.
 ## F06: Database Connection (F06)
 This task establishes connection with the database.
 **Status: Implemented**
+
+## F07: System Components (F07)
+This task includes common UI components.
+**Status: Implemented**
