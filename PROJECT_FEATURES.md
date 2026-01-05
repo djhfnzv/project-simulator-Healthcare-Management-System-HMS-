@@ -25,3 +25,7 @@ This task establishes connection with the database.
 ## F07: System Components (F07)
 This task includes common UI components.
 **Status: Implemented**
+
+## F08: Logout (F08)
+This task handles user logout functionality.
+**Status: Implemented**
