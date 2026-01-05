@@ -9,3 +9,7 @@ This task involves registering new users into the system.
 ## F03: Profile Viewing 
 This task involves viewing the profile for all entities
 **Status: Implemented**
+
+## F04: Profile Editing (F04)
+This task involves editing user profile information.
+**Status: Implemented**
