@@ -28,4 +28,7 @@ This task includes common UI components.
 
 ## F08: Logout (F08)
 This task handles user logout functionality.
+**Status: Implemented**## F11: Patient Dashboard2
+ Patient Dashboard(Updated) was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
+
