@@ -1,16 +1,16 @@
 <?php
     session_start();
-    print_r($_SESSION);
 ?>
 <html>
     <head>
         <title>Registration</title>
+        <link rel="stylesheet" href="../Asset/cssRegistration.css">
     </head>
     <body>
-        <script src="../Asset/script.js"></script>
+        <script src="../Asset/scriptRegistration.js"></script>
 
         <fieldset>
-            <legend><b>User Registration</b></legend>
+            <h1>User Registration</h1>
                 <form action="../Controller/registrationCheck.php" method="post">
                     <table>
                         <tr>
@@ -95,9 +95,9 @@
                     </table>
                     <input type="submit" value="Register"><div id="successMessage" style="color:green;"></div>
                 </form>
+                <form action="../../Login/View/login.php">
+                    <input type="submit" value="Login">
+                </form>
         </fieldset>
-        <form action="../../Login/View/login.php">
-            <input type="submit" value="Login">
-        </form>
     </body>
 </html>
