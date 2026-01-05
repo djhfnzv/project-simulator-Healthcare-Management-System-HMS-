@@ -1,18 +1,15 @@
 <html>
     <head>
         <title>Login</title>
-<<<<<<< HEAD
         <link rel="stylesheet" href="../Asset/cssLogin.css">
     </head>
     <script src="../Asset/sccriptLogin.js"></script>
         <fieldset>
             <h1>Login</h1>
-=======
     </head>
     <script src="../Asset/login.js"></script>
         <fieldset>
             <legend><b>User Registration</b></legend>
->>>>>>> 8fc8722 (chore: initial project structure setup)
                 <form action="../Controller/loginCheck.php" method="post" onsubmit="return validateLogin()">
                     <table>
                         <tr>
