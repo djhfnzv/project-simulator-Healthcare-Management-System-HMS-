@@ -29,3 +29,13 @@ This task includes common UI components.
 ## F08: Logout (F08)
 This task handles user logout functionality.
 **Status: Implemented**
+
+
+## F09: Admin Dashboard
+This task involves the main control of the system to the admin.
+**Status: Implemented**
+
+## F10: User Activity (F10)
+This task records user login and logout activity.
+**Status: Implemented**
+
