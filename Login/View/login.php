@@ -6,6 +6,10 @@
     <script src="../Asset/sccriptLogin.js"></script>
         <fieldset>
             <h1>Login</h1>
+    </head>
+    <script src="../Asset/login.js"></script>
+        <fieldset>
+            <legend><b>User Registration</b></legend>
                 <form action="../Controller/loginCheck.php" method="post" onsubmit="return validateLogin()">
                     <table>
                         <tr>
