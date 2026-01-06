@@ -61,3 +61,7 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
 ## F16: Payment (F16)
   Payment feature was implemented using MVC architecture and validated using Java Script .
  **Status: Implemented**
+## F19: Doctor
+  Doctor dashboard feature was implemented and doctor can see the appointed patients list .
+**Status: Implemented**
+
