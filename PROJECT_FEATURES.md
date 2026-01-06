@@ -123,3 +123,6 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
 ## F23: Nurse
   Nurse updates by Sefat.
 **Status: Implemented**
+## F22: Nurse
+  Nurse by Sefat.
+**Status: Implemented**
