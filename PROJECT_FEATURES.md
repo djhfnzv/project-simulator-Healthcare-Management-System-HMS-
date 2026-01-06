@@ -66,3 +66,6 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   Search Patient feature was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
 
+## F18: Receptionist Dashboard
+  Receptionist Dashboard feature was implemented using MVC architecture and validated using Java Script .
+**Status: Implemented**
