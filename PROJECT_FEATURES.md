@@ -81,3 +81,7 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   NUrse can see his/her profle, duty schedule and patient list .
 **Status: Implemented**
 
+## F23: Prescription-Management
+  Doctor can update the prescription from doctor dashboard and nurse can see the prescription .
+**Status: Implemented**
+
