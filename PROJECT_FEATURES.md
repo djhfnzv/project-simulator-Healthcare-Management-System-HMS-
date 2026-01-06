@@ -38,7 +38,7 @@ This task involves the main control of the system to the admin.
 This task records user login and logout activity.
 **Status: Implemented**
 
-## F11: Patient Dashboard2
+## F11: Patient Dashboard2 (F11)
 Patient Dashboard(Updated) was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
 
