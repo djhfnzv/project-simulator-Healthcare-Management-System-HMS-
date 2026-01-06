@@ -38,11 +38,16 @@ This task involves the main control of the system to the admin.
 This task records user login and logout activity.
 **Status: Implemented**
 
-## F11: Patient Dashboard2
+## F11: Patient Dashboard2 (F11)
 Patient Dashboard(Updated) was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
 
-## F14: Manage Appointment
+## F13: Cancel Appointment (F13)
+  Cancel Appointment feature was implemented using MVC architecture and validated using Java Script .
+  **Status: Implemented**
+
+## F14: Manage Appointment (F14)
   Manage Appointment feature was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
+
 
