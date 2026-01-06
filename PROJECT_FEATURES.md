@@ -103,3 +103,7 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   Prescription Managements by sefat .
 **Status: Implemented**
 
+## F22: Nurse
+  Nurse by Sefat.
+**Status: Implemented**
+
