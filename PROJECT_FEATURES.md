@@ -81,3 +81,6 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   Doctor can view patients previous medical records .
 **Status: Implemented**
 
+## F21: Medical Records
+  Medical Records by Sefat.
+**Status: Implemented**
