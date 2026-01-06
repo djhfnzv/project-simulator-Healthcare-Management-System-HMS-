@@ -73,15 +73,19 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
 ## F19: Doctor Dashboard (F19)
   Doctor dashboard feature was implemented and doctor can see the appointed patients list .
 **Status: Implemented**
-## F20: Doctor-Schedule
+
+## F20: Doctor-Schedule (F20 )
   Doctor can check his/her schedule and can also update and delete it .
 **Status: Implemented**
 
-## F22: Nurse-Dashboard
+## F21: Medical-Records (F21)
+  Doctor can view patients previous medical records .
+**Status: Implemented**
+
+## F22: Nurse-Dashboard (F22)
   NUrse can see his/her profle, duty schedule and patient list .
 **Status: Implemented**
 
-## F23: Prescription-Management
+## F23: Prescription-Management (F23)
   Doctor can update the prescription from doctor dashboard and nurse can see the prescription .
 **Status: Implemented**
-
