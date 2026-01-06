@@ -72,6 +72,12 @@ body {
     border-radius: 4px;
 }
 
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
 .sidebar li:hover,
 .sidebar .active {
     background: #1e3a56;
@@ -96,6 +102,9 @@ body {
 .content {
     flex: 1;
     padding: 30px;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
 }
 
 .content h1 {
@@ -106,4 +115,40 @@ body {
 .content p {
     font-size: 18px;
     color: #333;
+}
+
+.dashboard-content {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.dashboard-content h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.dashboard-content p {
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+#schedule {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+#schedule th {
+    background: darkslategrey;
+    color: white;
+    padding: 5px;
+}
+
+#schedule td {
+    padding: 4px;
+    border-bottom: 1px solid #966426;
+    text-align: center;
 }
