@@ -91,3 +91,7 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
 **Status: Implemented**
 
 
+## F20: Doctor Schedule
+  Doctor can update and delete his/her schedule .
+**Status: Implemented**
+
