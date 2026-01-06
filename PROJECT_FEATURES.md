@@ -99,3 +99,7 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   Medical Records by sefat .
 **Status: Implemented**
 
+## F23: Prescription Management
+  Prescription Managements by sefat .
+**Status: Implemented**
+
