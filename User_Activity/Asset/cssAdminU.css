@@ -1,0 +1,139 @@
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Body ===== */
+body {
+    font-family: "Times New Roman", Times, serif;
+    background: wheat;
+}
+
+/* ===== Topbar ===== */
+.topbar {
+    height: 60px;
+    background-color: darkslategrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 2px solid wheat;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* ===== Layout ===== */
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    width: 220px;
+    background: #122334;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidebar li {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+    background: #1e3a56;
+}
+
+.menu-title {
+    margin-top: 15px;
+    font-weight: bold;
+    color: wheat;
+}
+
+.submenu {
+    margin-left: 15px;
+}
+
+.submenu li {
+    font-size: 14px;
+    padding: 8px;
+}
+
+/* ===== Content ===== */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+
+
+/* ===== activity List ===== */
+.activity-list {
+    width: 100%;
+    min-width: 400px;
+}
+
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.activity-table th {
+    background: darkslategrey;
+    color: white;
+    padding: 5px;
+}
+
+.activity-table td {
+    padding: 4px;
+    border-bottom: 1px solid #966426;
+    text-align: center;
+}
