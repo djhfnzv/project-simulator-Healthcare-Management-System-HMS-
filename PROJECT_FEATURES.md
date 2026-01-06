@@ -77,3 +77,7 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   Doctor can check his/her schedule and can also update and delete it .
 **Status: Implemented**
 
+## F22: Nurse-Dashboard
+  Doctor can view patients previous medical records .
+**Status: Implemented**
+
