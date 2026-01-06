@@ -42,6 +42,10 @@ This task records user login and logout activity.
 Patient Dashboard(Updated) was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
 
+## F12: Book Appointment2 (F12)
+  Book Appointment feature was implemented using MVC architecture and validated using Java Script .
+**Status: Implemented**
+
 ## F13: Cancel Appointment (F13)
   Cancel Appointment feature was implemented using MVC architecture and validated using Java Script .
   **Status: Implemented**
@@ -49,5 +53,6 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
 ## F14: Manage Appointment (F14)
   Manage Appointment feature was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
+
 
 
