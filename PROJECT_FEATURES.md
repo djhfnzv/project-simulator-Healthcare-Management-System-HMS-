@@ -61,3 +61,8 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
 ## F16: Payment (F16)
   Payment feature was implemented using MVC architecture and validated using Java Script .
  **Status: Implemented**
+
+## F17: Search Patient (F17)
+  Search Patient feature was implemented using MVC architecture and validated using Java Script .
+**Status: Implemented**
+
