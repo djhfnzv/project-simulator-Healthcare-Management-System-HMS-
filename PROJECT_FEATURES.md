@@ -78,12 +78,6 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   Doctor can check his/her schedule and can also update and delete it .
 **Status: Implemented**
 
-<<<<<<< HEAD
-## F22: Nurse-Dashboard
-  NUrse can see his/her profle, duty schedule and patient list .
-**Status: Implemented**
-
-=======
 ## F21: Medical-Records (F21)
   Doctor can view patients previous medical records .
 **Status: Implemented**
@@ -94,37 +88,4 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
 
 ## F23: Prescription-Management (F23)
   Doctor can update the prescription from doctor dashboard and nurse can see the prescription .
-**Status: Implemented**
-<<<<<<< HEAD
->>>>>>> 469de1d4e077db7de719643c24d4b5e17e0e4ff3
-## F21: Medical Records
-  Doctor can see patients previous medical records .
-**Status: Implemented**
-=======
->>>>>>> c19927fe415a4d675fb5afb5dbcee2b115f33157
-
-## F20: Doctor Schedule
-  Doctor can update and delete his/her schedule .
-**Status: Implemented**
-
-## F20: Doctor Schedule
-  Doctor can update and delete his/her schedule .
-**Status: Implemented**
-
-## F21: Medical Records
-  Medical Records by sefat .
-**Status: Implemented**
-
-## F23: Prescription Management
-  Prescription Managements by sefat .
-**Status: Implemented**
-
-
-## F22: Nurse Dashboard
-  Nurse by sefat .
-**Status: Implemented**
-
-
-## F02: User Registration (F02)
-This task involves registering new users into the system.
 **Status: Implemented**
