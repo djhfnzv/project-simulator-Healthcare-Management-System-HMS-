@@ -45,4 +45,3 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
 ## F15: Reschedule Appointment
   Reschedule Appointment feature was implemented using MVC architecture and validated using Java Script .
 **Status: Implemented**
-

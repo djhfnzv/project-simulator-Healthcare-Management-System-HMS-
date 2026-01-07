@@ -35,9 +35,6 @@ require_once '../../DB/dbUser.php';
 
     <div class="topbar-right">
         <div class="icon">
-            <img src="../../Icons/bell.svg" alt="Notifications">
-        </div>
-        <div class="icon">
             <form action="../../Profile/View/profile.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
                     <img src="../../Icons/profile.svg" alt="Profile">
@@ -69,7 +66,7 @@ require_once '../../DB/dbUser.php';
                 <li><a href="../../Admin/View/patientList.php">Patient</a></li>
             </ul>
 
-            <li><a href="bills.php">Bills</a></li>
+            <li><a href="../../Admin/View/bills.php">Bills</a></li>
             <li><a href="../../User_Activity/View/userActivity.php">User Activity</a></li>
         </ul>
     </aside>
