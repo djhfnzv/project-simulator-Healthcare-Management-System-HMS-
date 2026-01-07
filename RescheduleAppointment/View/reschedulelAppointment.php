@@ -8,6 +8,7 @@
     
     <link rel="stylesheet" href="../Asset/styleReceptionist.css">
     <script src="../Asset/cancelReschedule.js"></script>
+    <script src="../Asset/rescheduleAjax.js"></script>
 </head>
 
 <body>
@@ -49,50 +50,59 @@
         <td><?= $a['day'] ?></td>
         <td><?= $a['timeSlot'] ?></td>
         <td>
+    
+<button onclick="cancelAppointmentAjax(<?= $a['id'] ?>)"
+        style="background:red;color:black;padding:5px;">
+        Cancel
+</button>
 
-<form method="post" style="display:inline;"
-onsubmit="return confirmCancel();">
-<input type="hidden" name="appointment_id" value="<?= $a['id'] ?>">
-<input type="submit" name="cancel" value="Cancel"
-style="background:red;color:black;padding:5px;">
+
+<form method="post" style="display:inline;" id="rescheduleForm-<?= $a['id'] ?>">
+
+    <input type="hidden" name="appointment_id" value="<?= $a['id'] ?>">
+
+    <!-- Day select -->
+    <select name="day" id="day-<?= $a['id'] ?>">
+        <option value="">Select Day</option>
+        <?php
+        $days = mysqli_query(
+            $con,
+            "SELECT DISTINCT day FROM doctorschedule
+             WHERE doctorName='{$a['doctorName']}'"
+        );
+        while ($d = mysqli_fetch_assoc($days)) {
+        ?>
+        <option value="<?= $d['day'] ?>"><?= $d['day'] ?></option>
+        <?php } ?>
+    </select>
+
+    <!-- Time select -->
+    <select name="timeSlot" id="time-<?= $a['id'] ?>">
+        <option value="">Select Time</option>
+        <?php
+        $slots = mysqli_query(
+            $con,
+            "SELECT timeSlot FROM doctorschedule
+             WHERE doctorName='{$a['doctorName']}'"
+        );
+        while ($s = mysqli_fetch_assoc($slots)) {
+        ?>
+        <option value="<?= $s['timeSlot'] ?>"><?= $s['timeSlot'] ?></option>
+        <?php } ?>
+    </select>
+
+    <!-- JS Button -->
+    <button type="button" class="reschedule-btn"
+        onclick="rescheduleAppointmentAjax(
+            <?= $a['id'] ?>,
+            document.getElementById('day-<?= $a['id'] ?>').value,
+            document.getElementById('time-<?= $a['id'] ?>').value
+        )">
+        Reschedule
+    </button>
+
 </form>
 
-<form method="post" style="display:inline;"
-onsubmit="return validateReschedule(this);">
-
-<input type="hidden" name="appointment_id" value="<?= $a['id'] ?>">
-
-<select name="day">
-<option value="">Select Day</option>
-<?php
-$days = mysqli_query(
-    $con,
-    "select distinct day from doctorschedule
-     where doctorName='{$a['doctorName']}'"
-);
-while ($d = mysqli_fetch_assoc($days)) {
-?>
-<option value="<?= $d['day'] ?>"><?= $d['day'] ?></option>
-<?php } ?>
-</select>
-
-<select name="timeSlot">
-<option value="">Select Time</option>
-<?php
-$slots = mysqli_query(
-    $con,
-    "select timeSlot from doctorschedule
-     where doctorName='{$a['doctorName']}'"
-);
-while ($s = mysqli_fetch_assoc($slots)) {
-?>
-<option value="<?= $s['timeSlot'] ?>"><?= $s['timeSlot'] ?></option>
-<?php } ?>
-</select>
-
-<input type="submit" name="reschedule" value="Reschedule">
-
-</form>
 
 </td>
 </tr>
