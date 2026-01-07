@@ -56,3 +56,4 @@ if (isset($_POST['bill_history']) && empty($error)) {
          order by datetime desc"
     );
 }
+?>
