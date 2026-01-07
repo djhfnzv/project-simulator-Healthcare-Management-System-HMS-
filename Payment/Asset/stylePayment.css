@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/*PAGE BACKGROUND*/
+body {
+    background: #f1f5f9;
+    padding: 30px;
+    color: #1e293b;
+}
+
+.page-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #0f172a;
+    text-align: center;
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.payment-table th {
+    background: #1e3a56;
+    color: white;
+    padding: 14px;
+    font-size: 15px;
+}
+
+.payment-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+/*STATUS COLORS*/
+.paid {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.due {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+.btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+.btn-bill {
+    background: #334155;
+    color: white;
+}
+
+.btn-pay {
+    background: #22c55e;
+    color: #052e16;
+}
+
+.btn-home {
+    background: #2563eb;
+    color: white;
+}
+
+.bill-box {
+    margin-top: 25px;
+    background: white;
+    padding: 18px 22px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.bill-box h3 {
+    font-size: 18px;
+}
+
+/*PAYMENT PAGE*/
+.payment-box {
+    width: 440px;
+    margin: 60px auto;
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.payment-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*RADIO BUTTONS*/
+.payment-methods {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.payment-methods label {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/*PAYMENT FORMS*/
+.pay-form {
+    display: none;
+    margin-top: 15px;
+}
+
+.pay-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    border: 1px solid #cbd5f5;
+}
+
+.pay-form button {
+    width: 100%;
+    background: #22c55e;
+    color: #052e16;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .payment-box {
+        width: 90%;
+    }
+}
+

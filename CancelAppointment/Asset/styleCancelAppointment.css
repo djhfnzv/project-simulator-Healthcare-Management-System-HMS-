@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background: wheat;
+}
+
+/*Topbar*/
+.topbar {
+    height: 60px;
+    background-color: darkslategrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 2px solid wheat;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/*Layout*/
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 220px;
+    background: #122334;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+    background: #1e3a56;
+}
+
+/* Sidebar links */
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+}
+
+/* Hover & active link */
+.sidebar li:hover a,
+.sidebar .active a {
+    color: white;
+}
+
+
+.menu-title {
+    margin-top: 15px;
+    font-weight: bold;
+    color: wheat;
+}
+
+.submenu {
+    margin-left: 15px;
+}
+
+.submenu li {
+    font-size: 14px;
+    padding: 8px;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.content h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #333;
+}
+/* Appointment Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+table th {
+    background: #1e3a56;
+    color: white;
+    padding: 10px;
+}
+
+table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Cancel Button */
+.cancel-btn {
+    background: red;
+    color: black;
+    border: none;
+    padding: 6px 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.cancel-btn:hover {
+    background: darkred;
+    color: white;
+}
+
+/* Message */
+.message {
+    margin-top: 15px;
+    font-weight: bold;
+}

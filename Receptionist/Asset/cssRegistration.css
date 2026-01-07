@@ -1,0 +1,93 @@
+/* Reset default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+h1{
+    position: relative;
+    padding-left: 75px;
+}
+/* Page background */
+body {
+    height: 100vh;
+    background-image:url("hospital_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fieldset styling */
+fieldset {
+    width: 450px;
+    padding: 25px;
+    background-color: rgb(219, 236, 240);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 1);
+}
+
+/* Table layout */
+table {
+    width: 100%;
+    margin-top: 15px;
+}
+
+td {
+    padding: 8px 5px;
+    color: #333;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #b3d9ff;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4da6ff;
+}
+
+/* Buttons */
+input[type="submit"] {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #acbdce;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+input[type="submit"]:hover {
+    background-color: #1f7a8c;
+    color: white;
+}
+
+/* Error & success messages */
+#emailError,
+#passwordError {
+    font-size: 12px;
+}
+
+#successMessage {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
