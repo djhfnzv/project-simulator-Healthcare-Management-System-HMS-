@@ -88,9 +88,4 @@
 
     echo json_encode(['success' => true, 'message' => 'Login successful']);
     exit();
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 4a0673b (Update : ajax-json implemented)
 ?>

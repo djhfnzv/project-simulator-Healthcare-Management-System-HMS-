@@ -124,3 +124,7 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   Nurse by sefat .
 **Status: Implemented**
 
+
+## F02: User Registration (F02)
+This task involves registering new users into the system.
+**Status: Implemented**
