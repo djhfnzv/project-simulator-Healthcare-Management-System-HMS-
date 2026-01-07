@@ -1,15 +1,28 @@
 <?php
     session_start();
-    if (!isset($_SESSION['user'])) {
+
+    if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
         header("Location: ../../Login/View/login.php");
         exit();
     }
+
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+        echo "Access denied!";
+        exit();
+    }
+
+    if (!isset($_SESSION['user'])) {
+        echo "User data not found!";
+        exit();
+    }
+    require_once '../../DB/dbUser.php';
 ?>
+
 
 <html>
 <head>
     <title>Healthcare Management System</title>
-    <link rel="stylesheet" href="../../CSS/style1.css">
+    <link rel="stylesheet" href="../Asset/cssAdmin.css">
 </head>
 
 <body>
@@ -21,9 +34,7 @@
     </div>
 
     <div class="topbar-right">
-        <div class="icon">
-            <img src="../../Icons/bell.svg" alt="Notifications">
-        </div>
+
         <div class="icon">
             <form action="../../Profile/View/profile.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
@@ -33,7 +44,7 @@
             
         </div>
         <div class="icon">
-            <form action="../../Registration/Controller/logout.php" method="post" class="logout-form">
+            <form action="../../Logout/Controller/logout.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
                     <img src="../../Icons/logout.svg" alt="Logout">
                 </button>
@@ -57,26 +68,20 @@
             </ul>
 
             <li><a href="bills.php">Bills</a></li>
-            <li><a href="userRecord.php">User Record</a></li>
+            <li><a href="../../User_Activity/View/userActivity.php">User Activity</a></li>
         </ul>
     </aside>
 
     <main class="content">
-        <h2>Hi, <?php echo $_SESSION['user']['name']; ?>!</h2>
+        <h1>Hi, <?php echo $_SESSION['user']['name']; ?>!</h2>
 
-        <h3>Registration Data:</h3>
-        <table border="1" cellpadding="5" cellspacing="0">
-            <tr><td>Name</td><td><?php echo $_SESSION['user']['name']; ?></td></tr>
-            <tr><td>Date of Birth</td><td><?php echo $_SESSION['user']['dob']; ?></td></tr>
-            <tr><td>Age</td><td><?php echo $_SESSION['user']['age']; ?></td></tr>
-            <tr><td>Gender</td><td><?php echo $_SESSION['user']['gender']; ?></td></tr>
-            <tr><td>Blood Group</td><td><?php echo $_SESSION['user']['bloodGroup']; ?></td></tr>
-            <tr><td>Email</td><td><?php echo $_SESSION['user']['email']; ?></td></tr>
-            <tr><td>Phone</td><td><?php echo $_SESSION['user']['phone']; ?></td></tr>
-        </table>
+        <p >
+            Open Files From Side Panel
+        </p>
+    
     </main>
+
 </div>
 
 </body>
 </html>
-
