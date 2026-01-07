@@ -19,8 +19,7 @@ $query = "
     select doctorName, age, diagnosis, treatment, medication, created_at
     from prescriptions
     where patientName='$patientName'
-    order by created_at desc
-";
+    order by created_at desc";
 
 $result = mysqli_query($con, $query);
 

@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background: wheat;
+}
+
+/*TOP BAR */
+.topbar {
+    height: 60px;
+    background-color: darkslategrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 2px solid wheat;
+}
+
+.topbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topbar .logo img {
+    height: 40px;
+}
+
+.topbar-right {
+    display: flex;
+    gap: 15px;
+}
+
+.icon img {
+    height: 22px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/*LAYOUT*/
+.container {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+/*SIDEBAR*/
+.sidebar {
+    width: 230px;
+    background: #122334;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li.active a {
+    background: #1e3a56;
+}
+
+/*CONTENT*/
+.content {
+    flex: 1;
+    padding: 25px;
+    background: #f3ddb6;
+}
+
+.content h1,
+.content h2,
+.content h3 {
+    margin-bottom: 15px;
+}
+
+/*FORMS*/
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    padding: 7px;
+    width: 250px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    padding: 7px 14px;
+    background: darkslategrey;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: darkslategrey;
+}
+
+/*TABLES*/
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    margin-top: 10px;
+}
+
+.content table th,
+.content table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+}
+
+.content table th {
+    background: #e6e6e6;
+    font-weight: bold;
+}
+
+/*MESSAGES */
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+.success {
+    color: green;
+    margin-top: 10px;
+}
