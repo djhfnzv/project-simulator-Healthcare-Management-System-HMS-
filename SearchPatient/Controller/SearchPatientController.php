@@ -9,31 +9,39 @@ $appointments  = null;
 $billHistory   = null;
 $showBill      = false;
 $phone         = '';
+$error         = '';
 
-if (isset($_POST['search']) || isset($_POST['bill_history']))
-{
+if (isset($_POST['search']) || isset($_POST['bill_history'])) {
 
-    $phone = $_POST['phone'];
+    $phone = $_POST['phone'] ?? '';
 
-    $patient = mysqli_query(
-        $con,
-        "select * from users
-         where mobile='$phone' and role='patient'"
-    );
+    if (empty($phone)) {
+        $error = "Phone number is required!";
+    }
+    elseif (!is_numeric($phone) || strlen($phone) < 11) {
+        $error = "Invalid phone number!";
+    }
+    else {
 
-    $appointments = mysqli_query(
-        $con,
-        "select doctorName, speciality, day, timeSlot
-         from appointmentsandbill
-         where patientEmail = (
-            select email from users where mobile='$phone'
-         )
-         order by datetime desc"
-    );
+        $patient = mysqli_query(
+            $con,
+            "select * from users
+             where mobile='$phone' and role='patient'"
+        );
+
+        $appointments = mysqli_query(
+            $con,
+            "select doctorName, speciality, day, timeSlot
+             from appointmentsandbill
+             where patientEmail = (
+                select email from users where mobile='$phone'
+             )
+             order by datetime desc"
+        );
+    }
 }
 
-if (isset($_POST['bill_history'])) 
-{
+if (isset($_POST['bill_history']) && empty($error)) {
 
     $showBill = true;
 
@@ -48,4 +56,4 @@ if (isset($_POST['bill_history']))
          order by datetime desc"
     );
 }
-
+?>

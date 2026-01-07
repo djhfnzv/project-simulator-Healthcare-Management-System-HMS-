@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if (mysqli_query($con, $query)) {
                 $_SESSION['success'] = "Patient registered successfully!";
-                header("Location: registerPatient.php");
+                header("Location: ../View/registerPatient.php");
                 exit();
             } else {
                 $message = "Failed to register patient!";

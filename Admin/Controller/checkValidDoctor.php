@@ -2,6 +2,8 @@
 session_start();
 require_once '../../DB/dbUser.php';
 
+header('Content-Type: application/json');
+
 $con = connection();
 
 $action = $_POST['action'] ?? '';
@@ -22,15 +24,16 @@ function isValidEmailManual($email)
     return true;
 }
 
-if ($action === 'add' || $action === 'update') {
+$errors = [];
 
-    $name       = trim($_POST['name'] ?? '');
-    $age        = $_POST['age'] ?? '';
-    $dob        = $_POST['dob'] ?? '';
-    $email      = trim($_POST['email'] ?? '');
-    $email_key  = trim($_POST['email_key'] ?? '');
-    $password   = $_POST['password'] ?? '';
-    $mobile     = trim($_POST['mobile'] ?? '');
+if ($action === 'add' || $action === 'update') {
+    $name = trim($_POST['name'] ?? '');
+    $age = $_POST['age'] ?? '';
+    $dob = $_POST['dob'] ?? '';
+    $email = trim($_POST['email'] ?? '');
+    $email_key = trim($_POST['email_key'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $mobile = trim($_POST['mobile'] ?? '');
     $speciality = trim($_POST['speciality'] ?? '');
 
     //validation
@@ -38,29 +41,32 @@ if ($action === 'add' || $action === 'update') {
     if ($action === 'add') {
 
         if ($name === '' || $email === '' || $password === '') {
-            echo "Required fields missing";
-            exit();
+            $errors['general'] = "Required fields missing";
         }
 
         if (!isValidEmailManual($email)) {
-            echo "Invalid email";
-            exit();
+            $errors['email'] = "Invalid email";
         }
 
     } else {
 
         if ($name === '' || $email_key === '') {
-            echo "Required fields missing";
-            exit();
+            $errors['general'] = "Required fields missing";
         }
 
         if (!isValidEmailManual($email_key)) {
-            echo "Invalid email";
-            exit();
+            $errors['email'] = "Invalid email";
         }
     }
 
-    //query
+    if ($age !== '' && !is_numeric($age)) $errors['age'] = "Age must be numeric";
+    if ($mobile !== '' && strlen($mobile) < 11) $errors['mobile'] = "Invalid mobile";
+    if ($password !== '' && strlen($password) < 6) $errors['password'] = "Password too short";
+
+    if (!empty($errors)) {
+        echo json_encode(['success' => false, 'errors' => $errors]);
+        exit();
+    }
 
     if ($action === 'add') {
 
@@ -85,7 +91,7 @@ if ($action === 'add' || $action === 'update') {
                         dob='$dob',
                         mobile='$mobile',
                         speciality='$speciality'
-                      WHERE email='$email_key' and role ='Doctor'";
+                      where email='$email_key' and role ='Doctor'";
         }
     }
 
@@ -94,20 +100,19 @@ if ($action === 'add' || $action === 'update') {
     $email_key = trim($_POST['email_key'] ?? '');
 
     if ($email_key === '') {
-        echo "No doctor selected";
+        echo json_encode(['success' => false, 'error' => 'No doctor selected']);
         exit();
     }
-
     $query = "delete from users where email='$email_key' and role='Doctor'";
-
 } else {
-    echo "Invalid request";
+    echo json_encode(['success' => false, 'error' => 'Invalid action']);
     exit();
 }
 
 if (mysqli_query($con, $query)) {
-    header("Location: ../View/doctorList.php");
-    exit();
+    echo json_encode(['success' => true, 'message' => ucfirst($action) . ' successful']);
 } else {
-    echo "Database error";
+    echo json_encode(['success' => false, 'error' => 'Database error']);
 }
+exit();
+?>
