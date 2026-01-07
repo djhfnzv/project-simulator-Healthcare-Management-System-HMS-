@@ -101,3 +101,40 @@
         </fieldset>
     </body>
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let form = document.querySelector("form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // ...existing validation code...
+
+            if (isValid) {
+                let gender = document.querySelector('input[name="gender"]:checked')?.value || '';
+                let bloodGroup = document.getElementById("bloodGroup").value;
+
+                let user = {
+                    'name': name,
+                    'dob': dob,
+                    'age': age,
+                    'gender': gender,
+                    'bloodGroup': bloodGroup,
+                    'email': email,
+                    'password': password,
+                    'confirmPassword': confirmPassword,
+                    'phone': phone
+                };
+                let data = JSON.stringify(user);
+                let xhttp = new XMLHttpRequest();
+                xhttp.open('POST', '../Controller/registrationCheck.php', true);
+                xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhttp.send('user=' + data);
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        let response = JSON.parse(this.responseText);
+                        if (response.success) {
+                            successMessage.innerHTML = response.message;
+                            setTimeout(() => {
+                                window.location.href = '../../Login/View/login.php';
+                           
