@@ -90,3 +90,12 @@ Patient Dashboard(Updated) was implemented using MVC architecture and validated 
   Doctor can update the prescription from doctor dashboard and nurse can see the prescription .
 **Status: Implemented**
 
+
+## F09: Admin Dashboard
+This task involves the main control of the system to the admin.
+**Status: Implemented**
+
+## F10: User Activity (F10)
+This task records user login and logout activity.
+**Status: Implemented**
+
