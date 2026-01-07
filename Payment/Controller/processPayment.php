@@ -56,8 +56,7 @@ $query = "
         card_mobile_data='$info',
         datetime='$datetime'
     where patientEmail='$email'
-    and status='confirmed'
-";
+    and status='confirmed'";
 
 mysqli_query($con, $query);
 
