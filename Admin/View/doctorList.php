@@ -1,4 +1,5 @@
 <?php
+<<<<<<< Updated upstream
     session_start();
 
     if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
@@ -16,6 +17,25 @@
         exit();
     }
     require_once '../../DB/dbUser.php';
+=======
+session_start();
+
+if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
+    header("Location: ../../Login/View/login.php");
+    exit();
+}
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+    echo "Access denied!";
+    exit();
+}
+
+if (!isset($_SESSION['user'])) {
+    echo "User data not found!";
+    exit();
+}
+require_once '../../DB/dbUser.php';
+>>>>>>> Stashed changes
 ?>
 
 <html>
@@ -75,8 +95,9 @@
 
     <main class="content">
 
-        <h1>Doctor List</h1>
+    <h1>Doctor List</h1>
 
+<<<<<<< Updated upstream
         <?php
             $con = connection();
             $doctors = [];
@@ -205,6 +226,55 @@
             </div>
         </div>
     </main>
+=======
+    <?php
+        /* DB CONNECTION */
+        $con = connection();
+        $doctors = [];
+
+        $query = "SELECT name, age, dob, email, mobile, speciality 
+                  FROM users 
+                  WHERE role = 'Doctor'";
+
+        $result = mysqli_query($con, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $doctors[] = $row;
+            }
+        }
+    ?>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>DOB</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Speciality</th>
+        </tr>
+
+        <?php if (count($doctors) > 0) { ?>
+            <?php foreach ($doctors as $doc) { ?>
+                <tr>
+                    <td><?= $doc['name'] ?? '-' ?></td>
+                    <td><?= $doc['age'] ?? '-' ?></td>
+                    <td><?= $doc['dob'] ?? '-' ?></td>
+                    <td><?= $doc['email'] ?? '-' ?></td>
+                    <td><?= $doc['mobile'] ?? '-' ?></td>
+                    <td><?= $doc['speciality'] ?? '-' ?></td>
+                </tr>
+            <?php } ?>
+        <?php } else { ?>
+            <tr>
+                <td colspan="6" align="center">No doctors found</td>
+            </tr>
+        <?php } ?>
+    </table>
+
+</main>
+>>>>>>> Stashed changes
 </div>
 
 </body>

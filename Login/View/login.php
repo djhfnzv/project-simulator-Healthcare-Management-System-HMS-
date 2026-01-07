@@ -2,14 +2,17 @@
     <head>
         <title>Login</title>
         <link rel="stylesheet" href="../Asset/cssLogin.css">
+<<<<<<< Updated upstream
     </head>
     <script src="../Asset/sccriptLogin.js"></script>
         <fieldset>
             <h1>Login</h1>
+=======
+>>>>>>> Stashed changes
     </head>
     <script src="../Asset/login.js"></script>
         <fieldset>
-            <legend><b>User Registration</b></legend>
+            <h1>Login</h1>
                 <form action="../Controller/loginCheck.php" method="post" onsubmit="return validateLogin()">
                     <table>
                         <tr>

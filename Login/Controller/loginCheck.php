@@ -44,9 +44,12 @@
     $_SESSION['username']= $user['email'];
     $_SESSION['name']= $user['name'];
 
+<<<<<<< Updated upstream
     $query = "insert into userActivity (user_name, user_email, user_role)
                                 VALUES ('{$user['name']}', '$email', '{$user['role']}')";
     mysqli_query($con,$query);
+=======
+>>>>>>> Stashed changes
 
     setcookie('status', 'true', time() + 3000, '/');
     setcookie('user_role', $_SESSION['role'], time() + 3000, '/');
@@ -55,5 +58,8 @@
     header("Location: ../../Role_Based_Access_Control/Controller/homeRedirect.php");
     exit();
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 ?>

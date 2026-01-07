@@ -10,6 +10,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'Doctor') {
     header("Location: ../../Login/View/login.php");
     exit();
 }
+require_once '../../DB/dbUser.php';
 
 $conn = mysqli_connect("localhost", "root", "", "project");
 if (!$conn) {
@@ -18,41 +19,44 @@ if (!$conn) {
 
 $doctorName = $_SESSION['user']['name'];
 
-if (isset($_POST['delete'])) {
-    $day      = $_POST['day'];
-    $timeSlot = $_POST['timeSlot'];
 
-    mysqli_query(
-        $conn,
-        "DELETE FROM doctorSchedule 
-         WHERE doctorName='$doctorName' 
-         AND day='$day' 
-         AND timeSlot='$timeSlot'"
-    );
-}
-
-if (isset($_POST['addSchedule'])) {
-
-    $speciality = isset($_SESSION['user']['speciality'])
-        ? $_SESSION['user']['speciality']
-        : 'General';
-
-    $day      = $_POST['day'];
-    $timeSlot = $_POST['timeSlot'];
-    $fee      = $_POST['appointmentFee'];
-
-    mysqli_query(
-        $conn,
-        "INSERT INTO doctorSchedule 
-        (doctorName, speciality, day, timeSlot, appointmentFee)
-        VALUES 
-        ('$doctorName', '$speciality', '$day', '$timeSlot', '$fee')"
-    );
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    header('Content-Type: application/json');
+    $con = $conn; 
+    if (!$con) {
+        echo json_encode(['success' => false, 'message' => 'DB connection failed']);
+        exit();
+    }
+    $doctorName = isset($_SESSION['user']['name']) ? mysqli_real_escape_string($con, $_SESSION['user']['name']) : '';
+    $action = $_POST['action'];
+    if ($action === 'add') {
+        $day = mysqli_real_escape_string($con, $_POST['day'] ?? '');
+        $timeSlot = mysqli_real_escape_string($con, $_POST['timeSlot'] ?? '');
+        $fee = mysqli_real_escape_string($con, $_POST['appointmentFee'] ?? '0');
+        if ($day === '' || $timeSlot === '') {
+            echo json_encode(['success' => false, 'message' => 'Missing fields']);
+            exit();
+        }
+        $speciality = isset($_SESSION['user']['speciality']) ? mysqli_real_escape_string($con, $_SESSION['user']['speciality']) : 'General';
+        $sql = "INSERT INTO doctorschedule (doctorName,speciality,day,timeSlot,appointmentFee) VALUES ('$doctorName','$speciality','$day','$timeSlot','$fee')";
+        if (mysqli_query($con, $sql)) echo json_encode(['success' => true]); else echo json_encode(['success' => false, 'message' => 'Insert failed: '.mysqli_error($con)]);
+        exit();
+    }
+    if ($action === 'delete') {
+        $day = mysqli_real_escape_string($con, $_POST['day'] ?? '');
+        $timeSlot = mysqli_real_escape_string($con, $_POST['timeSlot'] ?? '');
+        if ($day === '' || $timeSlot === '') { echo json_encode(['success' => false, 'message' => 'Missing fields']); exit(); }
+        $sql = "DELETE FROM doctorschedule WHERE doctorName='$doctorName' AND day='$day' AND timeSlot='$timeSlot'";
+        if (mysqli_query($con, $sql)) echo json_encode(['success' => true]); else echo json_encode(['success' => false, 'message' => 'Delete failed: '.mysqli_error($con)]);
+        exit();
+    }
+    echo json_encode(['success' => false, 'message' => 'Unknown action']);
+    exit();
 }
 
 $result = mysqli_query(
     $conn,
-    "SELECT * FROM doctorSchedule WHERE doctorName='$doctorName'"
+    "SELECT * FROM doctorschedule WHERE doctorName='$doctorName'"
 );
 ?>
 
@@ -104,7 +108,7 @@ $result = mysqli_query(
 
 <h2>My Schedule (<?php echo $doctorName; ?>)</h2>
 
-<form method="post">
+<form id="addScheduleForm" method="post" onsubmit="return false;">
     <label>Day</label><br>
     <select name="day" required>
         <option value="">Select Day</option>
@@ -131,7 +135,7 @@ $result = mysqli_query(
     <label>Appointment Fee</label><br>
     <input type="number" name="appointmentFee" min="1" required><br><br>
 
-    <button type="submit" name="addSchedule">
+    <button type="button" onclick="addSchedule()" name="addSchedule">
         Add Schedule
     </button>
 </form>
@@ -152,11 +156,7 @@ $result = mysqli_query(
     <td><?php echo $row['timeSlot']; ?></td>
     <td><?php echo $row['appointmentFee']; ?></td>
     <td>
-        <form method="post" style="display:inline;">
-            <input type="hidden" name="day" value="<?php echo $row['day']; ?>">
-            <input type="hidden" name="timeSlot" value="<?php echo $row['timeSlot']; ?>">
-            <button type="submit" name="delete">Delete</button>
-        </form>
+        <button type="button" onclick="deleteSchedule('<?php echo addslashes($row['day']); ?>','<?php echo addslashes($row['timeSlot']); ?>')">Delete</button>
     </td>
 </tr>
 <?php } ?>
@@ -166,5 +166,6 @@ $result = mysqli_query(
 </main>
 </div>
 
+    <script src="schedule.js"></script>
 </body>
 </html>

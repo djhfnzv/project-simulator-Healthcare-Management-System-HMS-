@@ -144,7 +144,11 @@
             </div>
             
         </div>
+<<<<<<< Updated upstream
         <form action="../../Profile Editing/View/profileEdit.php" method="post" class="profileEdit-form">
+=======
+        <form action="../../Profile/View/profileEdit.php" method="post" class="profileEdit-form">
+>>>>>>> Stashed changes
             <input type="submit" value="Edit Profile">
         </form>
         

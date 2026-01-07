@@ -16,6 +16,25 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 require_once '../../DB/dbUser.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['q'])) {
+    header('Content-Type: application/json');
+    $q = $_POST['q'] ?? '';
+    $con = connection();
+    if (!$con) { echo json_encode(['success'=>false,'message'=>'DB connection failed']); exit(); }
+    $qEsc = mysqli_real_escape_string($con, $q);
+    if ($qEsc === '') $sql = "SELECT DISTINCT patientName FROM appointmentsandbill";
+    else $sql = "SELECT DISTINCT patientName FROM appointmentsandbill WHERE patientName LIKE '%$qEsc%'";
+    $res = mysqli_query($con, $sql);
+    if ($res === false) {
+        echo json_encode(['success'=>false,'message'=>mysqli_error($con)]);
+        exit();
+    }
+    $names = [];
+    while ($r = mysqli_fetch_assoc($res)) $names[] = $r['patientName'];
+    echo json_encode(['success'=>true,'patients'=>$names]);
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +83,7 @@ require_once '../../DB/dbUser.php';
     </aside>
 
     <main class="content">
+<<<<<<< Updated upstream
         
         <?php
 
@@ -97,6 +117,18 @@ require_once '../../DB/dbUser.php';
         <?php } ?>
 
 
+=======
+        <div>
+            <label>Search Patient</label>
+            <input type="text" id="q" oninput="searchPatients()" placeholder="Enter patient name" />
+            <button type="button" id="searchBtn" onclick="searchPatients()">Search</button>
+        </div>
+        <h2>Patient List</h2>
+        <div id="patientResults">
+        </div>
+
+        <script src="patientList.js"></script>
+>>>>>>> Stashed changes
 
     </main>
 
