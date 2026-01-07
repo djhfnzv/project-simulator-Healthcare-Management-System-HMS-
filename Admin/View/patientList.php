@@ -74,7 +74,7 @@
 
     <main class="content">
     <h1>Patient List</h1>
-    <div id="successMessage" style="color:green;"></div> <!-- Add this -->
+    <div id="successMessage" style="color:green;"></div>
 
         <?php
             $con = connection();

@@ -74,9 +74,25 @@ if ($action === 'add' || $action === 'update') {
                             values ('$name', '$age', '$dob', '$email', '$password', '$mobile', '$speciality', 'Doctor')";
 
     } else {
-        $setPassword = $password !== '' ? ", password='$password'" : '';
-        $query = "UPDATE users SET name='$name', age='$age', dob='$dob', mobile='$mobile', speciality='$speciality' $setPassword
-                  WHERE email='$email_key' AND role='Doctor'";
+
+        if ($password !== '') {
+            $query = "update users set
+                        name='$name',
+                        age='$age',
+                        dob='$dob',
+                        password='$password',
+                        mobile='$mobile',
+                        speciality='$speciality'
+                      where email='$email_key' and role='Doctor'";
+        } else {
+            $query = "update users set
+                        name='$name',
+                        age='$age',
+                        dob='$dob',
+                        mobile='$mobile',
+                        speciality='$speciality'
+                      where email='$email_key' and role ='Doctor'";
+        }
     }
 
 } elseif ($action === 'delete') {
@@ -87,7 +103,7 @@ if ($action === 'add' || $action === 'update') {
         echo json_encode(['success' => false, 'error' => 'No doctor selected']);
         exit();
     }
-    $query = "DELETE FROM users WHERE email='$email_key' AND role='Doctor'";
+    $query = "delete from users where email='$email_key' and role='Doctor'";
 } else {
     echo json_encode(['success' => false, 'error' => 'Invalid action']);
     exit();

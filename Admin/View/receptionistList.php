@@ -74,7 +74,7 @@
 
     <main class="content">
     <h1>Receptionist List</h1>
-    <div id="successMessage" style="color:green;"></div> <!-- Add here -->
+    <div id="successMessage" style="color:green;"></div> 
 
         <?php
             $con = connection();

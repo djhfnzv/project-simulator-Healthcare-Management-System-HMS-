@@ -57,7 +57,7 @@ function deleteDoctor() {
                 let response = JSON.parse(this.responseText);
                 if (response.success) {
                     document.getElementById('successMessage').innerHTML = response.message;
-                    refreshDoctorList(); // Refresh table
+                    refreshDoctorList(); 
                     clearInputs();
                 } else {
                     alert(response.error);
@@ -77,14 +77,14 @@ function saveDoctor() {
             let response = JSON.parse(this.responseText);
             if (response.success) {
                 document.getElementById('successMessage').innerHTML = response.message;
-                refreshDoctorList(); // Refresh table
+                refreshDoctorList(); 
                 clearInputs();
                 enableInputs(false);
                 document.getElementById("saveBtn").disabled = true;
             } else {
-                // Clear previous errors
+                
                 document.querySelectorAll('.error').forEach(el => el.innerHTML = '');
-                // Display errors
+                
                 if (response.errors.name) document.getElementById('nameError').innerHTML = response.errors.name;
                 if (response.errors.age) document.getElementById('ageError').innerHTML = response.errors.age;
                 if (response.errors.dob) document.getElementById('dobError').innerHTML = response.errors.dob;

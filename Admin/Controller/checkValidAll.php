@@ -1,5 +1,5 @@
 <?php
-// filepath: c:\xampp\htdocs\labFinal\project_dev\Admin\Controller\checkValidAll.php
+
 session_start();
 require_once '../../DB/dbUser.php';
 
@@ -93,7 +93,7 @@ header('Content-Type: application/json');
                             age='$age',
                             dob='$dob',
                             mobile='$mobile'
-                          WHERE email='$email_key' and role ='$role'";
+                          where email='$email_key' and role ='$role'";
             }
         }
 
