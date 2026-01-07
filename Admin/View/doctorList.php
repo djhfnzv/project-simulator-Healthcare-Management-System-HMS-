@@ -33,9 +33,7 @@
     </div>
 
     <div class="topbar-right">
-        <div class="icon">
-            <img src="../../Icons/bell.svg" alt="Notifications">
-        </div>
+
         <div class="icon">
             <form action="../../Profile/View/profile.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
@@ -74,6 +72,7 @@
     </aside>
 
     <main class="content">
+        <div id="successMessage" style="color:green;"></div>
 
         <h1>Doctor List</h1>
 
@@ -148,32 +147,32 @@
 
                         <tr>
                             <td>Name</td>
-                            <td><input type="text" name="name" id="name" disabled></td>
+                            <td><input type="text" name="name" id="name" disabled><div id="nameError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>Age</td>
-                            <td><input type="number" name="age" id="age" disabled></td>
+                            <td><input type="text" name="age" id="age" disabled><div id="ageError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>DOB</td>
-                            <td><input type="date" name="dob" id="dob" disabled></td>
+                            <td><input type="date" name="dob" id="dob" disabled><div id="dobError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>Email</td>
-                            <td><input type="email" name="email" id="email" disabled></td>
+                            <td><input type="text" name="email" id="email" disabled><div id="emailError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>Password</td>
-                            <td><input type="password" name="password" id="password" disabled></td>
+                            <td><input type="password" name="password" id="password" disabled><div id="passwordError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>Mobile</td>
-                            <td><input type="text" name="mobile" id="mobile" disabled></td>
+                            <td><input type="text" name="mobile" id="mobile" disabled><div id="mobileError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
@@ -188,6 +187,7 @@
                                     <option value="Dermatology">Dermatology</option>
                                 </select>
                             </td>
+                            <td><div id="specialityError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
@@ -196,7 +196,7 @@
                                     <button type="button" onclick="addDoctor()">Add</button>
                                     <button type="button" onclick="editDoctor()">Edit</button>
                                     <button type="button" onclick="deleteDoctor()">Delete</button>
-                                    <button type="submit" id="saveBtn" disabled>Save</button>
+                                    <button type="button" onclick="saveDoctor()" id="saveBtn" disabled>Save</button>
                                 </div>
                             </td>
                         </tr>

@@ -25,7 +25,8 @@
 </head>
 
 <body>
-<script src="../Asset/adminNurse.js"></script>
+<script src="../Asset/adminList.js"></script>
+<script>initList('Nurse');</script>
 <header class="topbar">
     <div class="logo">
         <img src="../../Icons/logo.png" alt="Logo">
@@ -33,9 +34,7 @@
     </div>
 
     <div class="topbar-right">
-        <div class="icon">
-            <img src="../../Icons/bell.svg" alt="Notifications">
-        </div>
+
         <div class="icon">
             <form action="../../Profile/View/profile.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
@@ -76,6 +75,7 @@
     <main class="content">
 
         <h1>Nurse List</h1>
+        <div id="successMessage" style="color:green;"></div>
 
         <?php
             $con = connection();
@@ -119,7 +119,7 @@
                             <td><?php echo $nrs['password'] ?></td>
                             <td><?php echo $nrs['mobile'] ?></td>
                             <td>
-                                <button type="button" onclick='selectnurse(
+                                <button type="button" onclick='selectItem(
                                     "<?php echo $nrs['name'] ?>",
                                     "<?php echo $nrs['age'] ?>",
                                     "<?php echo $nrs['dob'] ?>",
@@ -148,40 +148,40 @@
 
                         <tr>
                             <td>Name</td>
-                            <td><input type="text" name="name" id="name" disabled></td>
+                            <td><input type="text" name="name" id="name" disabled><div id="nameError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>Age</td>
-                            <td><input type="number" name="age" id="age" disabled></td>
+                            <td><input type="number" name="age" id="age" disabled><div id="ageError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>DOB</td>
-                            <td><input type="date" name="dob" id="dob" disabled></td>
+                            <td><input type="date" name="dob" id="dob" disabled><div id="dobError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>Email</td>
-                            <td><input type="email" name="email" id="email" disabled></td>
+                            <td><input type="email" name="email" id="email" disabled><div id="emailError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>Password</td>
-                            <td><input type="password" name="password" id="password" disabled></td>
+                            <td><input type="password" name="password" id="password" disabled><div id="passwordError" class="error" style="color:red;"></div></td>
                         </tr>
 
                         <tr>
                             <td>Mobile</td>
-                            <td><input type="text" name="mobile" id="mobile" disabled></td>
+                            <td><input type="text" name="mobile" id="mobile" disabled><div id="mobileError" class="error" style="color:red;"></div></td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <div class="btn-group">
-                                    <button type="button" onclick="addnurse()">Add</button>
-                                    <button type="button" onclick="editnurse()">Edit</button>
-                                    <button type="button" onclick="deletenurse()">Delete</button>
-                                    <button type="submit" id="saveBtn" disabled>Save</button>
+                                    <button type="button" onclick="addItem()">Add</button>
+                                    <button type="button" onclick="editItem()">Edit</button>
+                                    <button type="button" onclick="deleteItem()">Delete</button>
+                                    <button type="button" onclick="saveItem()" id="saveBtn" disabled>Save</button>
                                 </div>
                             </td>
                         </tr>

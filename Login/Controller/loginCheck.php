@@ -2,16 +2,50 @@
     session_start();
     require_once '../../DB/dbUser.php';
 
+    header('Content-Type: application/json');
+
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        header("Location: ../View/login.php");
+        echo json_encode(['success' => false, 'error' => 'Invalid request method']);
         exit();
     }
 
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $data = $_POST['user'] ?? '';
+    if ($data === '') {
+        echo json_encode(['success' => false, 'error' => 'No data received']);
+        exit();
+    }
 
-    if ($email === "" || $password === "") {
-        echo "null submission!";
+    $userInput = json_decode($data, true);
+    $email = $userInput['email'] ?? '';
+    $password = $userInput['password'] ?? '';
+
+    function isValidEmailManual($email) {
+        if (substr_count($email, '@') !== 1) {
+            return false;
+        }
+        list($local, $domain) = explode('@', $email);
+        if ($local === '' || $domain === '') {
+            return false;
+        }
+        if (strpos($domain, '.') === false) {
+            return false;
+        }
+        if ($domain[0] === '.' || substr($domain, -1) === '.') {
+            return false;
+        }
+        $lastChar = substr($domain, -1);
+        if (!ctype_alpha($lastChar)) {
+            return false;
+        }
+        return true;
+    }
+
+    if ($email === "" || !isValidEmailManual($email)) {
+        echo json_encode(['success' => false, 'error' => 'Invalid email format']);
+        exit();
+    }
+    if ($password === "") {
+        echo json_encode(['success' => false, 'error' => 'Password is required']);
         exit();
     }
 
@@ -21,7 +55,7 @@
     $result = mysqli_query($con,$query);
 
     if (mysqli_num_rows($result) !== 1) {
-        echo "invalid user!";
+        echo json_encode(['success' => false, 'error' => 'Invalid email or password']);
         exit();
     }
 
@@ -40,9 +74,9 @@
         'image'      => $user['image']
     ];
 
-    $_SESSION['role']= $user['role'];
-    $_SESSION['username']= $user['email'];
-    $_SESSION['name']= $user['name'];
+    $_SESSION['role'] = $user['role'];
+    $_SESSION['username'] = $user['email'];
+    $_SESSION['name'] = $user['name'];
 
     $query = "insert into userActivity (user_name, user_email, user_role)
                                 VALUES ('{$user['name']}', '$email', '{$user['role']}')";
@@ -52,8 +86,6 @@
     setcookie('user_role', $_SESSION['role'], time() + 3000, '/');
     setcookie('user_name', $_SESSION['name'], time() + 3000, '/');
 
-    header("Location: ../../Role_Based_Access_Control/Controller/homeRedirect.php");
+    echo json_encode(['success' => true, 'message' => 'Login successful']);
     exit();
-
-
 ?>
