@@ -2,8 +2,10 @@
     session_start();
     require_once '../../DB/dbUser.php';
 
+    header('Content-Type: application/json');
+
     if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
-        header("Location: ../../Login/View/login.php");
+        echo json_encode(['success' => false, 'errors' => ['general' => 'Not logged in']]);
         exit();
     }
 
@@ -12,47 +14,41 @@
 
     $errors = [];
 
-    $name       = $_POST['name'];
-    $age        = $_POST['age'];
-    $mobile     = $_POST['mobile'];
-    $speciality = $_POST['speciality'];
-    $password   = $_POST['password'];
-    $confirm    = $_POST['confirmPassword'];
+    $name       = $_POST['name'] ?? '';
+    $age        = $_POST['age'] ?? '';
+    $mobile     = $_POST['mobile'] ?? '';
+    $speciality = $_POST['speciality'] ?? '';
+    $password   = $_POST['password'] ?? '';
+    $confirm    = $_POST['confirmPassword'] ?? '';
 
     if ($name == "") {
-        $errors[] = "Name required";
+        $errors['name'] = "Name required";
     }
 
     if ($age != "" && !is_numeric($age)) {
-        $errors[] = "Age must be numeric";
+        $errors['age'] = "Age must be numeric";
     }
 
     if ($mobile != "" && strlen($mobile) < 11) {
-        $errors[] = "Invalid mobile number";
+        $errors['mobile'] = "Invalid mobile number";
     }
 
     if ($password != "") {
         if ($password !== $confirm) {
-            $errors[] = "Password doesn't match";
+            $errors['password'] = "Password doesn't match";
         }
     }
 
-    if ($_FILES['myfile']['name'] != "") {
+    if (isset($_FILES['myfile']) && $_FILES['myfile']['name'] != "") {
         $ext = explode('.', $_FILES['myfile']['name']);
         $index = count($ext) - 1;
-
-        if (
-            $ext[$index] != 'jpg' &&
-            $ext[$index] != 'jpeg' &&
-            $ext[$index] != 'png'
-        ) {
-            $errors[] = "Invalid image format";
+        if ($ext[$index] != 'jpg' && $ext[$index] != 'jpeg' && $ext[$index] != 'png') {
+            $errors['image'] = "Invalid image format";
         }
     }
 
-    if (count($errors) > 0) {
-        $_SESSION['profileError'] = $errors;
-        header("Location: ../View/profileEdit.php");
+    if (!empty($errors)) {
+        echo json_encode(['success' => false, 'errors' => $errors]);
         exit();
     }
 
@@ -80,11 +76,9 @@
             where email = '$email'";
 
     if (mysqli_query($con, $query)) {
-        $_SESSION['profileSuccess'] = "Profile Updated";
+        echo json_encode(['success' => true, 'message' => 'Profile Updated']);
     } else {
-        $_SESSION['profileError'] = ["Failed to update profile"];
+        echo json_encode(['success' => false, 'errors' => ['general' => 'Failed to update profile']]);
     }
-
-    header("Location: ../../Profile/View/profile.php");
     exit();
 ?>
