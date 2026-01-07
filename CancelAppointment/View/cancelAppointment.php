@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Cancel Appointment</title>
-
-<link rel="stylesheet" href="../Asset/styleCancelAppointment.css">
-<script src="../Asset/patientCancelAppointment.js"></script>
+    <meta charset="UTF-8">
+    <title>Cancel Appointment</title>
+    <link rel="stylesheet" href="../Asset/styleCancelAppointment.css">
+    <script src="../Asset/patientCancelAppointment.js"></script>
+    <script src="../Asset/patientCancelAppointmentAjax.js"></script>
 </head>
 
 <body>
@@ -57,13 +57,12 @@ if (mysqli_num_rows($result) > 0) {
     <td><?= $row['status'] ?></td>
     <td>
         <?php if ($row['status'] == 'confirmed' || $row['status'] == 'pending') { ?>
-        <form method="post"
-              onsubmit="return confirmCancelPatient();"
-              style="margin:0;">
-            <input type="hidden" name="appointment_id" value="<?= $row['id'] ?>">
-            <input type="submit" name="cancel" value="Cancel" class="cancel-btn">
-        </form>
-        <?php } else { echo "Paid"; } ?>
+            <button class="cancel-btn"
+            onclick="cancelAppointmentAjax(<?= $row['id'] ?>)">
+            Cancel
+        </button>
+
+        <?php } else { echo "-"; } ?>
     </td>
 </tr>
 <?php
