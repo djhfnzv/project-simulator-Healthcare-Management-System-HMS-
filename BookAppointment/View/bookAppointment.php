@@ -7,6 +7,7 @@
         <title>Book Appointment</title>
         <link rel="stylesheet" href="../Asset/styleBookAppointment.css">
         <script src="../Asset/bookAppointment.js" defer></script>
+        <script src="../Asset/bookAppointmentAjax.js"></script>
     </head>
     
 <body>
@@ -36,7 +37,7 @@
 <tr>
     <td>Speciality</td>
     <td>
-        <select name="speciality" id="speciality" onchange="this.form.submit()">
+        <select name="speciality" id="speciality" onchange="loadDoctors()">
             <option value="">Select Speciality</option>
             <?php while($s = mysqli_fetch_assoc($specialities)) { ?>
                 <option value="<?= $s['speciality'] ?>" <?= ($s['speciality']==$selectedSpeciality)?'selected':'' ?>>

@@ -1,28 +1,16 @@
 <?php
 session_start();
 
-<<<<<<< HEAD
-=======
-/* ===== COOKIE CHECK (MUST) ===== */
->>>>>>> e7da120 (Updated Doctor Schedule feature with latest code and files)
 if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
     header("Location: ../../Login/View/login.php");
     exit();
 }
 
-<<<<<<< HEAD
-=======
-/* ===== ROLE CHECK ===== */
->>>>>>> e7da120 (Updated Doctor Schedule feature with latest code and files)
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'Doctor') {
     header("Location: ../../Login/View/login.php");
     exit();
 }
 
-<<<<<<< HEAD
-=======
-/* ===== DB ===== */
->>>>>>> e7da120 (Updated Doctor Schedule feature with latest code and files)
 $conn = mysqli_connect("localhost", "root", "", "project");
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
@@ -30,10 +18,7 @@ if (!$conn) {
 
 $doctorName = $_SESSION['user']['name'];
 
-<<<<<<< HEAD
-=======
-/* ===== DELETE ===== */
->>>>>>> e7da120 (Updated Doctor Schedule feature with latest code and files)
+
 if (isset($_POST['delete'])) {
     $day      = $_POST['day'];
     $timeSlot = $_POST['timeSlot'];
@@ -47,15 +32,7 @@ if (isset($_POST['delete'])) {
     );
 }
 
-<<<<<<< HEAD
 if (isset($_POST['addSchedule'])) {
-
-=======
-/* ===== INSERT ===== */
-if (isset($_POST['addSchedule'])) {
-
-    /* 🔧 FIX: speciality fallback */
->>>>>>> e7da120 (Updated Doctor Schedule feature with latest code and files)
     $speciality = isset($_SESSION['user']['speciality'])
         ? $_SESSION['user']['speciality']
         : 'General';
@@ -73,10 +50,7 @@ if (isset($_POST['addSchedule'])) {
     );
 }
 
-<<<<<<< HEAD
-=======
-/* ===== FETCH ===== */
->>>>>>> e7da120 (Updated Doctor Schedule feature with latest code and files)
+
 $result = mysqli_query(
     $conn,
     "SELECT * FROM doctorSchedule WHERE doctorName='$doctorName'"
