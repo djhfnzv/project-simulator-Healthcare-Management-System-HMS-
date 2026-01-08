@@ -6,10 +6,12 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
     exit();
 }
 
+
 if (!isset($_SESSION['user'])) {
     header("Location: ../../Login/View/login.php");
     exit();
 }
+
 
 require_once '../../DB/dbUser.php';
 ?>
