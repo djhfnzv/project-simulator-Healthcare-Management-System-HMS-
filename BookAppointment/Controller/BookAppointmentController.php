@@ -26,6 +26,7 @@ if ($selectedSpeciality != '') {
 }
 $doctors = mysqli_query($con, $doctorQuery);
 
+
 $days = null;
 if ($selectedDoctor != '') {
     $days = mysqli_query(
@@ -52,40 +53,50 @@ if ($selectedDoctor != '' && $selectedDay != '') {
 
 $message = "";
 
+
 if (isset($_POST['book'])) {
 
-    $patientEmail = $_SESSION['user']['email'];
-    $patientName  = $_SESSION['user']['name'];
+    if (
+        empty($selectedSpeciality) ||
+        empty($selectedDoctor) ||
+        empty($selectedDay) ||
+        empty($selectedTime)
+    ) {
+        $message = "All fields are required!";
+    } 
+    else {
 
-    $checkQuery = "
-        select id from appointmentsandbill
-        where doctorName='$selectedDoctor'
-        and day='$selectedDay'
-        and timeSlot='$selectedTime'
-        and status!='cancelled'
-    ";
-    $checkResult = mysqli_query($con, $checkQuery);
+        $patientEmail = $_SESSION['user']['email'];
+        $patientName  = $_SESSION['user']['name'];
 
-    if (mysqli_num_rows($checkResult) > 30) 
-        {
+        $checkQuery = "
+            select id from appointmentsandbill
+            where doctorName='$selectedDoctor'
+            and day='$selectedDay'
+            and timeSlot='$selectedTime'
+            and status!='cancelled' ";
+
+        $checkResult = mysqli_query($con, $checkQuery);
+
+        if (mysqli_num_rows($checkResult) > 30) {
             $message = "This slot is already booked!";
         } 
         else {
-            
-            $insertQuery = "
-            insert into appointmentsandbill
-            (patientName, patientEmail, doctorName, speciality, day, timeSlot, appointmentFee, status)
-            values
-            ('$patientName','$patientEmail','$selectedDoctor',
-             '$selectedSpeciality','$selectedDay','$selectedTime','$fee','confirmed')
-        ";
 
-        if (mysqli_query($con, $insertQuery)) 
-            {
+            $insertQuery = "
+                insert into appointmentsandbill
+                (patientName, patientEmail, doctorName, speciality, day, timeSlot, appointmentFee, status)
+                values
+                ('$patientName','$patientEmail','$selectedDoctor',
+                 '$selectedSpeciality','$selectedDay','$selectedTime',
+                 '$fee','confirmed')
+            ";
+
+            if (mysqli_query($con, $insertQuery)) {
                 $message = "Appointment booked successfully!";
-            } 
-            else {
+            } else {
                 $message = "Booking failed!";
             }
+        }
     }
 }
