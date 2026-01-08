@@ -18,6 +18,7 @@ if (!$conn) {
 
 $doctorName = $_SESSION['user']['name'];
 
+
 if (isset($_POST['delete'])) {
     $day      = $_POST['day'];
     $timeSlot = $_POST['timeSlot'];
@@ -32,7 +33,6 @@ if (isset($_POST['delete'])) {
 }
 
 if (isset($_POST['addSchedule'])) {
-
     $speciality = isset($_SESSION['user']['speciality'])
         ? $_SESSION['user']['speciality']
         : 'General';
@@ -49,6 +49,7 @@ if (isset($_POST['addSchedule'])) {
         ('$doctorName', '$speciality', '$day', '$timeSlot', '$fee')"
     );
 }
+
 
 $result = mysqli_query(
     $conn,
