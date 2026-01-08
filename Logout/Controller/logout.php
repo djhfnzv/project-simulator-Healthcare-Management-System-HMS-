@@ -24,12 +24,12 @@
     $_SESSION = [];
     session_destroy();
 
-    /* Remove login cookies */
+    // Clear all cookies
     setcookie('status', '', time() - 3600, '/');
     setcookie('user_role', '', time() - 3600, '/');
     setcookie('user_name', '', time() - 3600, '/');
 
 
-    header("Location: ../../Login/View/Login.php");
+    header("Location: ../../Login/View/login.php");
     exit();
 ?>

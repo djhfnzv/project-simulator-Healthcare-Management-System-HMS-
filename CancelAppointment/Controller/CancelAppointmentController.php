@@ -6,6 +6,7 @@ if (!isset($_SESSION['user'])) {
     header("Location: ../../Login/View/login.php");
     exit();
 }
+
 $con = connection();
 
 $patientEmail = $_SESSION['user']['email'];
@@ -13,19 +14,26 @@ $message = "";
 
 if (isset($_POST['cancel'])) {
 
-    $appointmentId = $_POST['appointment_id'];
+    $appointmentId = $_POST['appointment_id'] ?? '';
 
-    $query = "
-        update appointmentsandbill
-        set status='cancelled'
-        where id='$appointmentId'
-        and patientEmail='$patientEmail'
-    ";
+    if (empty($appointmentId)) {
+        $message = "Invalid appointment!";
+    } 
+    else {
 
-    if (mysqli_query($con, $query)) {
-        $message = "Appointment cancelled successfully!";
-    } else {
-        $message = "Failed to cancel appointment!";
+        $query = "
+            update appointmentsandbill
+            set status='cancelled'
+            where id='$appointmentId'
+            and patientEmail='$patientEmail'
+            and status!='cancelled'
+        ";
+
+        if (mysqli_query($con, $query)) {
+            $message = "Appointment cancelled successfully!";
+        } else {
+            $message = "Failed to cancel appointment!";
+        }
     }
 }
 
