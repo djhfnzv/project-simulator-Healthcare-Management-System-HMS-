@@ -31,7 +31,7 @@
         </div>
 
         <div class="icon">
-            <form action="../../Registration/Controller/logout.php" method="post" class="logout-form">
+            <form action="../../Logout/Controller/logout.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
                     <img src="../Asset/logout.svg" alt="Logout">
                 </button>

@@ -25,6 +25,7 @@ $user = mysqli_fetch_assoc($result);
 <head>
     <title>Healthcare Management System - Profile</title>
     <link rel="stylesheet" href="../Asset/cssProfile.css?v=1">
+    <script src="../Asset/scriptProfileEdit.js"></script>
 </head>
 
 <body>
@@ -36,9 +37,6 @@ $user = mysqli_fetch_assoc($result);
     </div>
 
     <div class="topbar-right">
-        <div class="icon">
-            <img src="../../Icons/bell.svg" alt="Notifications">
-        </div>
 
         <div class="icon">
             <form action="../../Profile/View/profile.php" method="post" class="logout-form">
@@ -80,37 +78,23 @@ $user = mysqli_fetch_assoc($result);
     <main class="content">
         <h2>Edit Profile</h2>
 
-        <!-- validation messages -->
-        <?php
-            if (isset($_SESSION['profileError'])) {
-                echo "<ul style='color:red'>";
-                foreach ($_SESSION['profileError'] as $err) {
-                    echo "<li>$err</li>";
-                }
-                echo "</ul>";
-                unset($_SESSION['profileError']);
-            }
+        <div id="successMessage" style="color:green;"></div>
 
-            if (isset($_SESSION['profileSuccess'])) {
-                echo "<p style='color:green'>" . $_SESSION['profileSuccess'] . "</p>";
-                unset($_SESSION['profileSuccess']);
-            }
-        ?>
-
-        <form method="POST" action="../Controller/checkValid.php" enctype="multipart/form-data">
+        <form id="editForm" method="POST" action="../Controller/checkValid.php" enctype="multipart/form-data">
             <table class="profile-table">
 
                 <tr>
                     <td>Name</td>
                     <td>
                         <input type="text" name="name" value="<?php echo $user['name']; ?>">
+                        <div id="nameError" class="error" style="color:red;"></div>
                     </td>
                 </tr>
-
                 <tr>
                     <td>Age</td>
                     <td>
                         <input type="text" name="age" value="<?php echo $user['age']; ?>">
+                        <div id="ageError" class="error" style="color:red;"></div>
                     </td>
                 </tr>
 
@@ -118,6 +102,7 @@ $user = mysqli_fetch_assoc($result);
                     <td>Mobile</td>
                     <td>
                         <input type="text" name="mobile" value="<?php echo $user['mobile']; ?>">
+                        <div id="mobileError" class="error" style="color:red;"></div>
                     </td>
                 </tr>
 
@@ -126,6 +111,7 @@ $user = mysqli_fetch_assoc($result);
                     <td>Speciality</td>
                     <td>
                         <input type="text" name="speciality" value="<?php echo $user['speciality']; ?>">
+                        <div id="specialityError" class="error" style="color:red;"></div>
                     </td>
                 </tr>
                 <?php } else { ?>
@@ -136,6 +122,7 @@ $user = mysqli_fetch_assoc($result);
                     <td>New Password</td>
                     <td>
                         <input type="password" name="password">
+                        <div id="passwordError" class="error" style="color:red;"></div>
                     </td>
                 </tr>
 
@@ -150,6 +137,7 @@ $user = mysqli_fetch_assoc($result);
                     <td>Profile Image</td>
                     <td>
                         <input type="file" name="myfile">
+                        <div id="imageError" class="error" style="color:red;"></div>
                     </td>
                 </tr>
 

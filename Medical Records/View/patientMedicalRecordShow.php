@@ -1,4 +1,6 @@
 <?php
+session_start(); 
+
 $conn = mysqli_connect("localhost", "root", "", "project");
 if (!$conn) {
     die("Database connection failed");
@@ -6,6 +8,7 @@ if (!$conn) {
 
 $role = $_SESSION['user']['role'];
 $userName = $_SESSION['user']['name'];
+
 
 if ($role === 'Doctor') {
     $sql = "
@@ -24,7 +27,7 @@ if ($role === 'Doctor') {
     ORDER BY a.patientName
     ";
 } else {
-    
+   
     $sql = "
     SELECT 
         a.patientName,

@@ -162,3 +162,18 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background: #1e3a56;
 }
+
+.reschedule-btn {
+    background-color: #e4db56;
+    color: rgb(0, 0, 0);
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.reschedule-btn:hover {
+    background-color: #e4db56;
+}
+

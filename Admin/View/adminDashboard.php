@@ -34,9 +34,7 @@
     </div>
 
     <div class="topbar-right">
-        <div class="icon">
-            <img src="../../Icons/bell.svg" alt="Notifications">
-        </div>
+
         <div class="icon">
             <form action="../../Profile/View/profile.php" method="post" class="logout-form">
                 <button type="submit" class="icon-btn">
