@@ -1,26 +1,22 @@
 <?php
 session_start();
 
-// Check if user is logged in via cookie
 if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
     header("Location: ../../Login/View/login.php");
     exit();
 }
 
-// Check if the user role is Doctor or Nurse (original style)
 if (!isset($_SESSION['user']) || 
     ($_SESSION['user']['role'] !== 'Doctor' && $_SESSION['user']['role'] !== 'Nurse')) {
     echo "Access denied!";
     exit();
 }
 
-// Make sure user session exists
 if (!isset($_SESSION['user'])) {
     echo "User data not found!";
     exit();
 }
 
-// Optional: include database functions if needed
 require_once '../../DB/dbUser.php';
 
 $role = $_SESSION['user']['role'];

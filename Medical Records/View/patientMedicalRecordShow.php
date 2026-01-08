@@ -1,16 +1,15 @@
 <?php
-//session_start();  // add this if not already started
+session_start(); 
 
 $conn = mysqli_connect("localhost", "root", "", "project");
 if (!$conn) {
     die("Database connection failed");
 }
 
-// Determine role and name
 $role = $_SESSION['user']['role'];
 $userName = $_SESSION['user']['name'];
 
-// SQL for Doctor or Nurse
+
 if ($role === 'Doctor') {
     $sql = "
     SELECT 
@@ -28,7 +27,7 @@ if ($role === 'Doctor') {
     ORDER BY a.patientName
     ";
 } else {
-    // Nurse sees all patients' appointments + prescriptions
+   
     $sql = "
     SELECT 
         a.patientName,
